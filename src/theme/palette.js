@@ -1,7 +1,7 @@
 export function themePalette(theme) {
-  const { mode, palettes, grey } = theme;
+  const { mode, palettes } = theme;
   return {
-    mode: theme.mode,
+    mode,
     primary: {
       ...palettes.primary,
     },

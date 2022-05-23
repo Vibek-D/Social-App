@@ -1,9 +1,5 @@
 import { blueGrey } from '@mui/material/colors';
 
-function generateGradiant(from, to) {
-  return 'linear-gradient(to bottom, '.concat(from, ', ').concat(to, ')');
-}
-
 const common = {
   white: '#FFFFFF',
   black: '#212B36',
@@ -30,16 +26,6 @@ const grey = {
   50080: 'rgba(145, 158, 171, 0.8)',
 };
 
-const action = {
-  hover: grey[5008],
-  selected: grey[50012],
-  disabled: grey[50080],
-  disabledBackground: grey[50024],
-  focus: grey[50024],
-  hoverOpacity: 0.08,
-  disabledOpacity: 0.48,
-};
-
 export const greyDark = {
   100: '#161C24',
   200: '#303846',
@@ -62,15 +48,6 @@ export const greyLight = {
   800: '#212B36',
 };
 
-const x = {
-  primary: 'linear-gradient(to bottom, #FDAB76, #FA541C)',
-  secondary: 'linear-gradient(to bottom, #77F0ED, #22B8CF)',
-  info: 'linear-gradient(to bottom, #63E8F9, #00B1ED)',
-  success: 'linear-gradient(to bottom, #69F290, #0CD66E)',
-  warning: 'linear-gradient(to bottom, #FFE475, #FFC81A)',
-  error: 'linear-gradient(to bottom, #FFA48D, #FF4842)',
-};
-
 export const LIGHT = {
   primary: {
     lighter: '#C8FAEC',
@@ -81,11 +58,6 @@ export const LIGHT = {
     contrastText: 'white',
   },
   secondary: {
-    // lighter: '#FEF9DA',
-    // light: '#FEE992',
-    // main: '#FDD14A',
-    // dark: '#B68B25',
-    // contrastText: common.black,
     lighter: '#FEE9D1',
     light: '#FDAB76',
     main: '#FA541C',
