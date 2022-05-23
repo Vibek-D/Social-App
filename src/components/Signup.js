@@ -31,67 +31,59 @@ const Signup = () => {
   };
 
   return (
-    <Box
-      flex={1}
-      width="100%"
-      height="100%"
-      justifyContent={"center"}
-      alignItems={"center"}
-    >
-      <Paper sx={{ mb: 3, maxWidth: 500 }}>
-        <Box p={2}>
-          <Formik
-            initialValues={{
-              name: "",
-              newPassword: "",
-              currentPassword: "",
-            }}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-          >
-            {({ isSubmitting }) => {
-              return (
-                <Form>
-                  <Field name="email" label="Email" component={Input} />
-                  <Field name="password" label="Password" component={Input} />
-                  <Field
-                    name="confirmPassword"
-                    label="Confirm Password"
-                    component={Input}
-                  />
-                  <Box
-                    mt={2}
-                    textAlign="right"
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems={"center"}
-                  >
-                    <Typography variant="body1" color="initial">
-                      Already logged in?
-                      <MuiLink
-                        component={Link}
-                        to={"/"}
-                        underline="none"
-                        sx={{ ml: 0.5 }}
-                      >
-                        Log in
-                      </MuiLink>
-                    </Typography>
-                    <Button
-                      loading={isSubmitting}
-                      variant="contained"
-                      type="submit"
+    <Paper sx={{ mb: 3, maxWidth: 500 }}>
+      <Box p={2}>
+        <Formik
+          initialValues={{
+            name: "",
+            newPassword: "",
+            currentPassword: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => {
+            return (
+              <Form>
+                <Field name="email" label="Email" component={Input} />
+                <Field name="password" label="Password" component={Input} />
+                <Field
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  component={Input}
+                />
+                <Box
+                  mt={2}
+                  textAlign="right"
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems={"center"}
+                >
+                  <Typography variant="body1" color="initial">
+                    Already logged in?
+                    <MuiLink
+                      component={Link}
+                      to={"/"}
+                      underline="none"
+                      sx={{ ml: 0.5 }}
                     >
-                      Sign In
-                    </Button>
-                  </Box>
-                </Form>
-              );
-            }}
-          </Formik>
-        </Box>
-      </Paper>
-    </Box>
+                      Log in
+                    </MuiLink>
+                  </Typography>
+                  <Button
+                    loading={isSubmitting}
+                    variant="contained"
+                    type="submit"
+                  >
+                    Sign In
+                  </Button>
+                </Box>
+              </Form>
+            );
+          }}
+        </Formik>
+      </Box>
+    </Paper>
   );
 };
 

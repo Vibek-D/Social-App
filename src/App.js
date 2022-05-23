@@ -1,4 +1,5 @@
 import makeTheme from "./theme";
+import Box from "@mui/material/Box";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { ThemeProvider } from "@mui/material";
@@ -13,13 +14,22 @@ function App() {
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={makeTheme()}>
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Login />}></Route>
-              <Route path="/signup" element={<Signup />}></Route>
-              <Route element={<ProtectedRoute />}>
-                <Route path="/dashboard" element={<Dashboard />}></Route>
-              </Route>
-            </Routes>
+            <Box
+              flex={1}
+              width="100%"
+              height="100%"
+              justifyContent={"center"}
+              alignItems={"center"}
+              sx={{ background: "cadetblue" }}
+            >
+              <Routes>
+                <Route path="/" element={<Login />}></Route>
+                <Route path="/signup" element={<Signup />}></Route>
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/dashboard" element={<Dashboard />}></Route>
+                </Route>
+              </Routes>
+            </Box>
           </BrowserRouter>
         </ThemeProvider>
       </StyledEngineProvider>
