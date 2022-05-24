@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import MuiLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
-const validationSchema = yup.object({
+const validationSchemaLogin = yup.object({
   email: yup
     .string("Enter your email")
     .required("Email is required")
@@ -29,11 +29,10 @@ const Login = () => {
       <Box p={2}>
         <Formik
           initialValues={{
-            name: "",
-            newPassword: "",
-            currentPassword: "",
+            email: '',
+            password: ''
           }}
-          validationSchema={validationSchema}
+          validationSchema={validationSchemaLogin}
           onSubmit={onSubmit}
         >
           {({ isSubmitting }) => {
