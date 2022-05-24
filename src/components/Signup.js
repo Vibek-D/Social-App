@@ -7,6 +7,8 @@ import Button from "../customs/CustomButton";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
 import MuiLink from "@mui/material/Link";
+import { useDispatch } from "react-redux";
+import { signup } from "../features/userSlice";
 import Typography from "@mui/material/Typography";
 
 const validationSchemaSignup = yup.object({
@@ -26,8 +28,17 @@ const validationSchemaSignup = yup.object({
 });
 
 const Signup = () => {
-  const onSubmit = (values) => {
-    console.log(values);
+  const dispatch = useDispatch();
+
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      signup({
+        loggedIn: true,
+        email: values.email,
+        password: values.password,
+      })
+    );
+    setSubmitting(false);
   };
 
   return (
@@ -35,9 +46,9 @@ const Signup = () => {
       <Box p={2}>
         <Formik
           initialValues={{
-            email: '',
-            password: '',
-            confirmPassword: '',
+            email: "",
+            password: "",
+            confirmPassword: "",
           }}
           validationSchema={validationSchemaSignup}
           onSubmit={onSubmit}

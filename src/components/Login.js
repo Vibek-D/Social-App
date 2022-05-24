@@ -5,8 +5,10 @@ import Paper from "@mui/material/Paper";
 import Input from "../customs/FormikInput";
 import Button from "../customs/CustomButton";
 import { Formik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MuiLink from "@mui/material/Link";
+import { useDispatch } from "react-redux";
+import { login } from "../features/userSlice";
 import Typography from "@mui/material/Typography";
 
 const validationSchemaLogin = yup.object({
@@ -20,8 +22,18 @@ const validationSchemaLogin = yup.object({
 });
 
 const Login = () => {
-  const onSubmit = (values) => {
-    console.log(values);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      login({
+        email: values.email,
+        password: values.password,
+      })
+    );
+    navigate("/dashboard");
+    setSubmitting(false)
   };
 
   return (
@@ -29,8 +41,8 @@ const Login = () => {
       <Box p={2}>
         <Formik
           initialValues={{
-            email: '',
-            password: ''
+            email: "",
+            password: "",
           }}
           validationSchema={validationSchemaLogin}
           onSubmit={onSubmit}
